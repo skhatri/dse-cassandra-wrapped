@@ -23,4 +23,3 @@ to make it run in readonly file system
 #DSE_AUTO_CONF_OFF=all to avoid rewriting data in cassandra/conf file
 ./run.sh
 ```
-

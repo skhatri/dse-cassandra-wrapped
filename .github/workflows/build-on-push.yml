@@ -21,7 +21,7 @@ jobs:
           context: ./
           file: ./Dockerfile
           push: true
-          tags: skhatri/datastax-dse-server-ro:6.8.9-ubi7-b3
+          tags: skhatri/datastax-dse-server-ro:6.8.9-ubi7-b4
 
 
 

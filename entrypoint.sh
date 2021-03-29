@@ -7,6 +7,12 @@
 
 set -e
 
+cp -r ${DSE_HOME}/resources/dse/conf-template/* ${DSE_HOME}/resources/dse/conf
+cp -r ${DSE_HOME}/resources/cassandra/conf-template/* ${DSE_HOME}/resources/cassandra/conf
+cp -r ${DSE_HOME}/resources/spark/conf-template/* ${DSE_HOME}/resources/spark/conf
+cp -r ${DSE_HOME}/resources/dse/collectd-template/* ${DSE_HOME}/resources/dse/collectd
+cp -r ${DSE_HOME}/bin-template/* ${DSE_HOME}/bin
+
 . /base-checks.sh
 
 link_external_config "${DSE_HOME}"
@@ -28,12 +34,6 @@ fi;
 IP_ADDRESS="$(hostname --ip-address)"
 CASSANDRA_CONFIG="${DSE_HOME}/resources/cassandra/conf/cassandra.yaml"
 CASSANDRA_RACK_CONFIG="${DSE_HOME}/resources/cassandra/conf/cassandra-rackdc.properties"
-
-cp -r ${DSE_HOME}/resources/dse/conf-template/* ${DSE_HOME}/resources/dse/conf
-cp -r ${DSE_HOME}/resources/cassandra/conf-template/* ${DSE_HOME}/resources/cassandra/conf
-cp -r ${DSE_HOME}/resources/spark/conf-template/* ${DSE_HOME}/resources/spark/conf
-cp -r ${DSE_HOME}/resources/dse/collectd-template/* ${DSE_HOME}/resources/dse/collectd
-cp -r ${DSE_HOME}/bin-template/* ${DSE_HOME}/bin
 
 # SNITCH sets the snitch this node will use. Use GossipingPropertyFileSnitch if not set
 : ${SNITCH=GossipingPropertyFileSnitch}
