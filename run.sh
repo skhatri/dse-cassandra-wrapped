@@ -21,3 +21,4 @@ docker run \
 -v $(pwd)/volumes/.cassandra:/opt/dse/.cassandra \
 -p 9042:9042 \
 -dt dse-server:latest
+
