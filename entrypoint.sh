@@ -32,8 +32,9 @@ CASSANDRA_RACK_CONFIG="${DSE_HOME}/resources/cassandra/conf/cassandra-rackdc.pro
 cp -r ${DSE_HOME}/resources/dse/conf-template/* ${DSE_HOME}/resources/dse/conf
 cp -r ${DSE_HOME}/resources/cassandra/conf-template/* ${DSE_HOME}/resources/cassandra/conf
 cp -r ${DSE_HOME}/resources/spark/conf-template/* ${DSE_HOME}/resources/spark/conf
+cp -r ${DSE_HOME}/resources/dse/collectd-template/* ${DSE_HOME}/resources/dse/collectd
+cp -r ${DSE_HOME}/bin-template/* ${DSE_HOME}/bin
 
-ls -la ${DSE_HOME}/resources/cassandra/conf
 # SNITCH sets the snitch this node will use. Use GossipingPropertyFileSnitch if not set
 : ${SNITCH=GossipingPropertyFileSnitch}
 

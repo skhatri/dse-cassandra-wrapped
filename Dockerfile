@@ -12,11 +12,13 @@ COPY --chown=app:app entrypoint.sh /entrypoint.sh
 RUN chmod 777 /entrypoint.sh \
     && mv /opt/dse/resources/cassandra/conf /opt/dse/resources/cassandra/conf-template \
     && mv /opt/dse/resources/dse/conf /opt/dse/resources/dse/conf-template \
-    && mv /opt/dse/resources/spark/conf /opt/dse/resources/spark/conf-template
+    && mv /opt/dse/resources/spark/conf /opt/dse/resources/spark/conf-template \
+    && mv /opt/dse/resources/dse/collectd /opt/dse/resources/dse/collectd-template \
+    && mv /opt/dse/bin /opt/dse/bin-template
 
-VOLUME ["/var/lib/cassandra" "/var/lib/dsefs" "/var/lib/spark" "/var/log/cassandra" "/var/log/spark" "/opt/dse/resources/cassandra/conf" "/opt/dse/resources/dse/conf" "/opt/dse/resources/spark/conf"]
+VOLUME ["/var/lib/cassandra" "/var/lib/dsefs" "/var/lib/spark" "/var/log/cassandra" "/var/log/spark" "/opt/dse/resources/cassandra/conf" "/opt/dse/resources/dse/conf" "/opt/dse/resources/dse/collectd" "/opt/dse/bin"  "/opt/dse/resources/spark/conf"]
 
-RUN (for x in /opt/dse /opt/dse/resources/cassandra/conf /opt/dse/resources/spark/conf /opt/dse/resources/dse/conf /var/lib/cassandra /var/lib/dsefs /var/lib/spark /var/log/cassandra /var/log/spark; do \
+RUN (for x in /opt/dse /opt/dse/resources/cassandra/conf /opt/dse/resources/spark/conf /opt/dse/resources/dse/conf /opt/dse/resources/dse/collectd /opt/dse/bin /var/lib/cassandra /var/lib/dsefs /var/lib/spark /var/log/cassandra /var/log/spark; do \
         chown -R app:app $x; done)
 
 ENV DS_LICENSE=accept
